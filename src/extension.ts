@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as _path from 'path';
 import { main } from './main';
 import { IConfigResponse } from './interfaces';
 
@@ -14,9 +15,15 @@ export function activate(context: vscode.ExtensionContext) {
           }
 
           const config: IConfigResponse = {
-            rootPath: vscode.workspace.workspaceFolders?.[0].uri.fsPath || '',
-            componentPath: `${context.fsPath}/${componentName}`,
             componentName,
+            rootPath: vscode.workspace.workspaceFolders?.[0].uri.fsPath || '',
+            defaultTemplatePath: _path.resolve(__dirname, '../template/'),
+            templatePath: _path.join(
+              vscode.workspace.workspaceFolders?.[0].uri.fsPath || '',
+              '.vscode',
+              'cch-template'
+            ),
+            componentPath: _path.join(context.fsPath, componentName),
           };
 
           Promise.all([main(config)]);

@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { %TPL%Props } from '.';
-import css from '%TPL%.module.scss';
 
 export const %TPL%: FC<%TPL%Props> = (props) => {
-  return <></>;
+  return <div {...props}></div>;
 };

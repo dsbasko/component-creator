@@ -1,12 +1,12 @@
-import * as vscode from 'vscode';
+import * as _path from 'path';
+import * as templateService from './services/template.service';
+import * as componentService from './services/component.service';
 import { IConfigResponse } from './interfaces';
-import { TemplateService } from './services';
 
-export const main = async (props: IConfigResponse) => {
-  const templateService = new TemplateService(props);
-  const templateName = await templateService.getTemplate();
-  if (!templateName) {
-    return vscode.window.showErrorMessage('Please choose a template');
+export const main = async (config: IConfigResponse) => {
+  const template = await templateService.getTemplate(config);
+  if (!template) {
+    return;
   }
-  await templateService.createComponent(templateName);
+  await componentService.createComponent(template, config);
 };
