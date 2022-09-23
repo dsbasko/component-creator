@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as _path from 'path';
+import * as strH from './services/string.service';
 import { main } from './main';
 import { IConfigResponse } from './interfaces';
 
@@ -23,7 +24,10 @@ export function activate(context: vscode.ExtensionContext) {
               '.vscode',
               'cch-template'
             ),
-            componentPath: _path.join(context.fsPath, componentName),
+            componentPath: _path.join(
+              context.fsPath,
+              strH.spaceTo(componentName, 'empty')
+            ),
           };
 
           Promise.all([main(config)]);

@@ -2,7 +2,7 @@
   "name": "create-component-helper",
   "displayName": "Component Creator",
   "description": "🧬 Create components for any language and any framework",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "vscode": "^1.70.0"
   },

@@ -4,3 +4,4 @@
 **/out
 *.vsix
 .vscode/cch-template
+draft.txt
