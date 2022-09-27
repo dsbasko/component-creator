@@ -1,0 +1,28 @@
+{{normal}} (normal)
+{{normalDotCase}} (normalDotCase)
+{{normalKebabCase}} (normalKebabCase)
+{{normalSnakeCase}} (normalSnakeCase)
+
+{{camelCase}} (camelCase)
+{{pascalCase}} (pascalCase)
+{{upperCase}} (upperCase)
+{{lowerCase}} (lowerCase)
+
+{{snakeCase}} (snakeCase)
+{{kebabCase}} (kebabCase)
+{{dotCase}} (dotCase)
+
+{{camelSnakeCase}} (camelSnakeCase)
+{{pascalSnakeCase}} (pascalSnakeCase)
+{{upperSnakeCase}} (upperSnakeCase)
+{{lowerSnakeCase}} (lowerSnakeCase)
+
+{{camelKebabCase}} (camelKebabCase)
+{{pascalKebabCase}} (pascalKebabCase)
+{{upperKebabCase}} (upperKebabCase)
+{{lowerKebabCase}} (lowerKebabCase)
+
+{{camelDotCase}} (camelDotCase)
+{{pascalDotCase}} (pascalDotCase)
+{{upperDotCase}} (upperDotCase)
+{{lowerDotCase}} (lowerDotCase)

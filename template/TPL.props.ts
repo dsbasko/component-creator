@@ -1,1 +1,0 @@
-export interface %TPL%Props {}

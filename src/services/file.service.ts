@@ -1,5 +1,7 @@
+import * as vscode from 'vscode';
 import * as _path from 'path';
 import * as fs from 'fs';
+import * as stringService from './string.service';
 
 export const getFileList = async (
   path: string,
@@ -68,6 +70,14 @@ export const writeFile = async (
 ): Promise<void> => {
   const pathJoin = _path.join(path, fileName);
   const fullPath = _path.join(pathJoin, '../');
+
+  if (await isExistPath(pathJoin)) {
+    vscode.window.showErrorMessage(
+      `The file "${_path.parse(pathJoin).base}" has already been created!`
+    );
+    return;
+  }
+
   if (!(await isExistPath(fullPath))) {
     await makeDirectory(fullPath);
   }
@@ -75,13 +85,31 @@ export const writeFile = async (
   await fs.promises.writeFile(pathJoin, Buffer.from(buffer, 'utf-8'));
 };
 
-export const makeDirectory = async (path: string): Promise<void> => {
-  await fs.promises.mkdir(path, { recursive: true });
+export const makeDirectory = async (
+  path: string,
+  props?: { replace?: string }
+): Promise<void> => {
+  const pathParse = _path.parse(path);
+  await fs.promises.mkdir(
+    props?.replace
+      ? _path.join(pathParse.dir, stringService.replace(pathParse.name, props.replace))
+      : path,
+    { recursive: true }
+  );
 };
 
 export const isExistPath = async (dir: string): Promise<boolean> => {
   try {
     await fs.promises.stat(dir);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
+export const isExistPathSync = (dir: string): boolean => {
+  try {
+    fs.statSync(dir);
     return true;
   } catch (err) {
     return false;

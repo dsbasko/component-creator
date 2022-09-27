@@ -12,11 +12,7 @@ const createTemplate = async (config: IConfigResponse): Promise<void> => {
   for (const file of templateFiles) {
     const buffer = await fileService.readFile(config.defaultTemplatePath, file);
 
-    await fileService.writeFile(
-      _path.join(config.templatePath, 'default'),
-      file,
-      buffer || ''
-    );
+    await fileService.writeFile(_path.join(config.templatePath), file, buffer || '');
   }
 };
 

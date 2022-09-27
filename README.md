@@ -2,7 +2,7 @@
 
 A plugin for simple creating components based on yours templates.
 
-![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/intro.gif 'Demo')
+![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
 
 ## Features
 
@@ -16,52 +16,59 @@ A plugin for simple creating components based on yours templates.
 
 ## Usage
 
-Right-click on the required directory, select **Create Component**, and then enter the name of the component. If you have several templates, you will have to choose one of them.
+Right-click on the required directory, select `New component from template [+]`, and then enter the name of the component. If you have several templates, you will have to choose one of them.
 
 <br><br><br>
 
 ## Settings
 
-When the component is first created, the plugin automatically creates a directory `.vscode/cch-template/default`, which stores a simple component template. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+When the component is first created, the plugin automatically creates a directory `.vscode/cch-template`, with three default template. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
 
 <br><br><br>
 
-## Filename template
+### Basic transforms
 
-| Template | Description        | Example          | Result (component name: Color picker Input)      |
-| -------- | ------------------ | ---------------- | ------------------------------------------------ |
-| `TPL`    | Without conversion | `TPL.props.ts`   | `./ColorpickerInput/ColorpickerInput.props.ts`   |
-| `%tPl`   | Camel Case         | `%tPl.props.ts`  | `./ColorpickerInput/colorPickerInput.props.ts`   |
-| `%TpL`   | Pascal Case        | `%TpL.props.ts`  | `./ColorpickerInput/ColorPickerInput.props.ts`   |
-| `%tpl`   | Lower Case         | `%tpl.props.ts`  | `./ColorpickerInput/colorpickerinput.props.ts`   |
-| `%TPL`   | Upper Case         | `%TPL.props.ts`  | `./ColorpickerInput/COLORPICKERINPUT.props.ts`   |
-| `%_TpL`  | Pascal Snake Case  | `%_TpL.props.ts` | `./ColorpickerInput/Color_Picker_Input.props.ts` |
-| `%_tpl`  | Lower Snake Case   | `%_tpl.props.ts` | `./ColorpickerInput/color_picker_input.props.ts` |
-| `%_TPL`  | Upper Snake Case   | `%_TPL.props.ts` | `./ColorpickerInput/COLOR_PICKER_INPUT.props.ts` |
-| `%-TpL`  | Pascal Kebab Case  | `%-TpL.props.ts` | `./ColorpickerInput/Color-Picker-Input.props.ts` |
-| `%-tpl`  | Lower Kebab Case   | `%-tpl.props.ts` | `./ColorpickerInput/color-picker-input.props.ts` |
-| `%-TPL`  | Upper Kebab Case   | `%-TPL.props.ts` | `./ColorpickerInput/COLOR-PICKER-INPUT.props.ts` |
+| Transform        | Example            | Result (component name: Color picker InPut) |
+| ---------------- | ------------------ | ------------------------------------------- |
+| Camel case       | {{camelCase}}      | colorPickerInPut                            |
+| Pascal case      | {{pascalCase}}     | ColorPickerInPut                            |
+| Snake case       | {{snakeCase}}      | color_picker_input                          |
+| Upper snake case | {{upperSnakeCase}} | COLOR_PICKER_INPUT                          |
+| Kebab case       | {{kebabCase}}      | color-picker-input                          |
+| Upper kebab case | {{upperKebabCase}} | COLOR-PICKER-INPUT                          |
+| Dot case         | {{dotCase}}        | color.picker.input                          |
+| Upper dot case   | {{upperDotCase}}   | COLOR.PICKER.INPUT                          |
+
+### All transform
+
+| Transform            | Example             | Result (component name: Color picker InPut) |
+| -------------------- | ------------------- | ------------------------------------------- |
+| Without transform    | {{normal}}          | ColorpickerInPut                            |
+| Camel case           | {{camelCase}}       | colorPickerInPut                            |
+| Pascal case          | {{pascalCase}}      | ColorPickerInPut                            |
+| Upper case           | {{upperCase}}       | COLORPICKERINPUT                            |
+| Lower case           | {{lowerCase}}       | colorpickerinput                            |
+| With snake delimiter | {{normalSnake}}     | Color_picker_In_Put                         |
+| Snake case           | {{snakeCase}}       | color_picker_input                          |
+| Camel snake case     | {{camelSnakeCase}}  | color_Picker_In_Put                         |
+| Pascal snake case    | {{pascalSnakeCase}} | Color_Picker_In_Put                         |
+| Upper snake case     | {{upperSnakeCase}}  | COLOR_PICKER_INPUT                          |
+| Lower snake case     | {{lowerSnakeCase}}  | color_picker_input                          |
+| With kebab delimiter | {{normalKebab}}     | Color-picker-In-Put                         |
+| Kebab case           | {{kebabCase}}       | color-picker-input                          |
+| Camel kebab case     | {{camelKebabCase}}  | color-Picker-InPut                          |
+| Pascal kebab case    | {{pascalKebabCase}} | Color-Picker-InPut                          |
+| Upper kebab case     | {{upperKebabCase}}  | COLOR-PICKER-INPUT                          |
+| Lower kebab case     | {{lowerKebabCase}}  | color-picker-input                          |
+| With dot delimiter   | {{normalDot}}       | Color.picker.In.Put                         |
+| Dot case             | {{dotCase}}         | color.picker.input                          |
+| Camel dot case       | {{camelDotCase}}    | color.Picker.InPut                          |
+| Pascal dot case      | {{pascalDotCase}}   | Color.Picker.InPut                          |
+| Upper dot case       | {{upperDotCase}}    | COLOR.PICKER.INPUT                          |
+| Lower dot case       | {{lowerDotCase}}    | color.picker.input                          |
 
 <br><br><br>
 
-## Content template
+## Demo of template editing
 
-| Template  | Description        | Example                          | Result (component name: Color picker Input)  |
-| --------- | ------------------ | -------------------------------- | -------------------------------------------- |
-| `%TPL%`   | Without conversion | `export * from './%TPL%.props'`  | `export * from './ColorpickerInput.props'`   |
-| `%%tPl%`  | Camel Case         | `export * from './%tPl%.props'`  | `export * from './colorPickerInput.props'`   |
-| `%%TpL%`  | Pascal Case        | `export * from './%TpL%.props'`  | `export * from './ColorPickerInput.props'`   |
-| `%%tpl%`  | Lower Case         | `export * from './%tpl%.props'`  | `export * from './colorpickerinput.props'`   |
-| `%%TPL%`  | Upper Case         | `export * from './%TPL%.props'`  | `export * from './COLORPICKERINPUT.props'`   |
-| `%%_TpL%` | Pascal Snake Case  | `export * from './%_TpL%.props'` | `export * from './Color_Picker_Input.props'` |
-| `%%_tpl%` | Lower Snake Case   | `export * from './%_tpl%.props'` | `export * from './color_picker_input.props'` |
-| `%%_TPL%` | Upper Snake Case   | `export * from './%_TPL%.props'` | `export * from './COLOR_PICKER_INPUT.props'` |
-| `%%-TpL%` | Pascal Kebab Case  | `export * from './%-TpL%.props'` | `export * from './Color-Picker-Input.props'` |
-| `%%-tpl%` | Lower Kebab Case   | `export * from './%-tpl%.props'` | `export * from './color-picker-input.props'` |
-| `%%-TPL%` | Upper Kebab Case   | `export * from './%-TPL%.props'` | `export * from './COLOR-PICKER-INPUT.props'` |
-
-<br><br><br>
-
-## Demo of template creation
-
-![Create your template](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/your-template.gif 'Create your template')
+![Create your template](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/custom-template.gif 'Create your template')

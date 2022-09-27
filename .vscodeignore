@@ -1,9 +1,8 @@
 .gitignore
+.DS_Store
 **/*.map
 .yarnrc
 vsc-extension-quickstart.md
-.DS_Store
-**/node_modules
 **/src
 *.vsix
 **/tsconfig.json
