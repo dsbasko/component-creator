@@ -1,18 +1,33 @@
-import {
-  camelCase as camelCaseHelper,
-  capitalCase as pascalCaseHelper,
-} from 'change-case';
-
 export const camelCase = (str: string): string =>
-  camelCaseHelper(str, { delimiter: ' ' });
-export const pascalCase = (str: string): string => pascalCaseHelper(str);
+  str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) =>
+      index === 0 ? letter.toLowerCase() : letter.toUpperCase()
+    )
+    .replace(/\s+/g, ' ');
+
+export const pascalCase = (str: string): string =>
+  str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, (letter) => letter.toUpperCase())
+    .replace(/\s+/g, ' ');
+
 export const upperCase = (str: string): string => str.toUpperCase();
 export const lowerCase = (str: string): string => str.toLowerCase();
 
-export const spaceTo = (str: string, to: 'empty' | 'snake' | 'kebab' | 'dot'): string => {
+export const spaceTo = (
+  str: string,
+  to: 'empty' | 'snake' | 'kebab' | 'dot' | 'path'
+): string => {
   return str.replace(
     /\s+/g,
-    to === 'snake' ? '_' : to === 'kebab' ? '-' : to === 'dot' ? '.' : ''
+    to === 'snake'
+      ? '_'
+      : to === 'kebab'
+      ? '-'
+      : to === 'dot'
+      ? '.'
+      : to === 'path'
+      ? '/'
+      : ''
   );
 };
 
@@ -32,6 +47,7 @@ export const replace = (str: string, name: string): string => {
       .replace(/TPL/g, spaceTo(name, 'empty'))
 
       // Normal
+      .replace(/{{none}}/g, name)
       .replace(/{{normal}}/g, spaceTo(name, 'empty'))
       .replace(/{{normalDotCase}}/g, spaceTo(name, 'dot'))
       .replace(/{{normalKebabCase}}/g, spaceTo(name, 'kebab'))

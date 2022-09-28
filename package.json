@@ -2,7 +2,7 @@
   "name": "create-component-helper",
   "displayName": "Component Creator",
   "description": "🧬 Create components for any language and any framework",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -24,10 +24,11 @@
     "Other"
   ],
   "keywords": [
-    "Component",
-    "React",
-    "Vue",
-    "Angular"
+    "Create component",
+    "Python component",
+    "React component",
+    "Vue component",
+    "Angular component"
   ],
   "activationEvents": [
     "onCommand:component-creator.AddComponent"
@@ -73,8 +74,5 @@
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
     "vsce": "^2.11.0"
-  },
-  "dependencies": {
-    "change-case": "^4.1.2"
   }
 }
