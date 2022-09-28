@@ -13,10 +13,10 @@ A plugin for simple creating components based on yours templates.
 
 ![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
 
-## Whats new in 2.1.0?
+## Whats new in 2.1.1?
 
-- Added the ability to download templates from the library
-- In the absence of templates, it will not create default, but will offer to download from the library.
+- Added Angular templates to library
+- Added Vue templates to library
 
 <br><br><br>
 
