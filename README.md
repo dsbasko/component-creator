@@ -2,8 +2,6 @@
 
 A plugin for simple creating components based on yours templates.
 
-![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
-
 ## Features
 
 - Creating a component in the selected directory 💥
@@ -11,18 +9,32 @@ A plugin for simple creating components based on yours templates.
 - Using multiple templates 💥
 - Each project has its own setup 💥
 - Support for recursive directories 💥
+- Template library 💥
+
+![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
+
+## Whats new in 2.1.0?
+
+- Added the ability to download templates from the library
+- In the absence of templates, it will not create default, but will offer to download from the library.
 
 <br><br><br>
 
 ## Usage
 
-Right-click on the required directory, select `New component from template [+]`, and then enter the name of the component. If you have several templates, you will have to choose one of them.
+Right-click on the required directory, select `New component 🧩`, and then enter the name of the component. If you have several templates, you will have to choose one of them.
 
 <br><br><br>
 
 ## Settings
 
-When the component is first created, the plugin automatically creates a directory `.vscode/cch-template`, with three default template. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template`. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+
+## Download template
+
+In order to download one of several library templates, you need to press `Cmd/Ctrl` + `Shift` + `P` on the keyboard and select `Component Creator: Download Template`. Then, select a template from the list and rename it if necessary.
+
+If you want to add some template to the standard library, create an issue or pull request on github.
 
 <br><br><br>
 

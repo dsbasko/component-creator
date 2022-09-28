@@ -1,7 +1,6 @@
-export interface IConfigResponse {
+export interface IConfigCreateComponentResponse {
   componentName: string;
-  rootPath: string;
   defaultTemplatePath: string;
-  templatePath: string;
+  userTemplatePath: string;
   componentPath: string;
 }

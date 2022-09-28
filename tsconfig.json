@@ -11,5 +11,5 @@
     "moduleResolution": "node",
     "strict": true
   },
-  "exclude": ["node_modules", "template"]
+  "exclude": ["node_modules", "templates"]
 }

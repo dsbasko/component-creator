@@ -1,9 +1,9 @@
 import * as _path from 'path';
 import * as templateService from './services/template.service';
 import * as componentService from './services/component.service';
-import { IConfigResponse } from './interfaces';
+import { IConfigCreateComponentResponse } from './interfaces';
 
-export const main = async (config: IConfigResponse) => {
+export const createComponent = async (config: IConfigCreateComponentResponse) => {
   const template = await templateService.getTemplate(config);
   if (!template) {
     return;

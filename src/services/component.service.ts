@@ -1,11 +1,14 @@
 import * as _path from 'path';
 import * as fileService from './file.service';
 import * as stringService from './string.service';
-import { IConfigResponse } from '../interfaces';
+import { IConfigCreateComponentResponse } from '../interfaces';
 
-export const createComponent = async (templateName: string, config: IConfigResponse) => {
+export const createComponent = async (
+  templateName: string,
+  config: IConfigCreateComponentResponse
+) => {
   let template = await fileService.getFileList(
-    _path.join(config.templatePath, templateName),
+    _path.join(config.userTemplatePath, templateName),
     true
   );
 
@@ -25,7 +28,7 @@ export const createComponent = async (templateName: string, config: IConfigRespo
     const fileParse = _path.parse(file);
 
     const buffer = await fileService.readFile(
-      _path.join(config.templatePath, templateName, fileParse.dir),
+      _path.join(config.userTemplatePath, templateName, fileParse.dir),
       fileParse.base
     );
 
