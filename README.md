@@ -13,10 +13,11 @@ A plugin for simple creating components based on yours templates.
 
 ![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
 
-## Whats new in 2.1.1?
+## Whats new in 2.1.2?
 
 - Added Angular templates to library
 - Added Vue templates to library
+- Fixed bugs for react components
 
 <br><br><br>
 
