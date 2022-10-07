@@ -13,17 +13,17 @@ A plugin for simple creating components based on yours templates.
 
 ![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
 
-## Whats new in 2.1.2?
+## Whats new in 2.1.3?
 
-- Added Angular templates to library
-- Added Vue templates to library
-- Fixed bugs for react components
+- By selecting the text inside the code, you can create a component based on it;
+- Fixed default templates;
+- Finally removed support for the old %TPL% syntax.
 
 <br><br><br>
 
 ## Usage
 
-Right-click on the required directory, select `New component 🧩`, and then enter the name of the component. If you have several templates, you will have to choose one of them.
+Right-click on the required directory or selected code, select `New component 🧩`, and then enter the name of the component. If you have several templates, you will have to choose one of them.
 
 <br><br><br>
 

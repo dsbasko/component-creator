@@ -33,19 +33,7 @@ export const spaceTo = (
 
 export const replace = (str: string, name: string): string => {
   return (
-    str // deprecated
-      .replace(/%tPl/g, spaceTo(camelCase(name), 'empty'))
-      .replace(/%TpL/g, spaceTo(pascalCase(name), 'empty'))
-      .replace(/%TPL/g, spaceTo(upperCase(name), 'empty'))
-      .replace(/%tpl/g, spaceTo(lowerCase(name), 'empty'))
-      .replace(/%_TpL/g, spaceTo(pascalCase(name), 'snake'))
-      .replace(/%_TPL/g, spaceTo(upperCase(name), 'snake'))
-      .replace(/%_tpl/g, spaceTo(lowerCase(name), 'snake'))
-      .replace(/%-TpL/g, spaceTo(pascalCase(name), 'kebab'))
-      .replace(/%-TPL/g, spaceTo(upperCase(name), 'kebab'))
-      .replace(/%-tpl/g, spaceTo(lowerCase(name), 'kebab'))
-      .replace(/TPL/g, spaceTo(name, 'empty'))
-
+    str
       // Normal
       .replace(/{{none}}/g, name)
       .replace(/{{normal}}/g, spaceTo(name, 'empty'))

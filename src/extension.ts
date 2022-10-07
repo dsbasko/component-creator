@@ -20,20 +20,26 @@ export function activate(context: vscode.ExtensionContext) {
   let createComponentSub = vscode.commands.registerCommand(
     'component-creator.AddComponent',
     (context) => {
-      vscode.window.showInputBox({ title: 'Component name' }).then((componentName) => {
-        if (!componentName) {
-          return vscode.window.showErrorMessage('Please enter the component name.');
-        }
+      const editor = vscode.window.activeTextEditor;
+      const selection = editor?.document.getText(editor?.selection);
+      const isDir = _path.parse(context.fsPath).ext === '';
 
-        const config: IConfigCreateComponentResponse = {
-          componentName,
-          defaultTemplatePath,
-          userTemplatePath,
-          componentPath: _path.join(context.fsPath),
-        };
+      vscode.window
+        .showInputBox({ title: 'Component name', value: selection })
+        .then((componentName) => {
+          if (!componentName) {
+            return vscode.window.showErrorMessage('Please enter the component name.');
+          }
 
-        Promise.all([createComponent(config)]);
-      });
+          const config: IConfigCreateComponentResponse = {
+            componentName: componentName.replace(/[\/\\]/g, _path.sep),
+            defaultTemplatePath,
+            userTemplatePath,
+            componentPath: _path.join(context.fsPath, isDir ? '' : '../'),
+          };
+
+          Promise.all([createComponent(config)]);
+        });
     }
   );
 

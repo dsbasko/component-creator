@@ -1,1 +1,1 @@
-export interface {{pascalCase}}Props {}
+export interface {{pascalCase}}Props {};
