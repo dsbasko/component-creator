@@ -1,6 +1,12 @@
-# Create Component Helper
+[![](https://vsmarketplacebadge.apphb.com/version-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://vsmarketplacebadge.apphb.com/installs-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://vsmarketplacebadge.apphb.com/downloads-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://vsmarketplacebadge.apphb.com/rating-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
 
-A plugin for simple creating components based on yours templates.
+[![](https://badgen.net/github/stars/dsbasko/component-creator/#F9CA52)](https://github.com/dsbasko/component-creator)
+[![](https://badgen.net/github/releases/dsbasko/component-creator)](https://github.com/dsbasko/component-creator)
+
+Component Creator is an [open-source](https://github.com/dsbasko/component-creator) extension for [Visual Studio Code](https://code.visualstudio.com), for simple creating components based on yours templates.
 
 ## Features
 
@@ -12,12 +18,6 @@ A plugin for simple creating components based on yours templates.
 - Template library 💥
 
 ![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
-
-## Whats new in 2.1.3?
-
-- By selecting the text inside the code, you can create a component based on it;
-- Fixed default templates;
-- Finally removed support for the old %TPL% syntax.
 
 <br><br><br>
 
@@ -86,3 +86,9 @@ If you want to add some template to the standard library, create an issue or pul
 ## Demo of template editing
 
 ![Create your template](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/custom-template.gif 'Create your template')
+
+<br><br><br>
+
+## Author
+
+Dmitriy Basenko [GitHub](https://github.com/dsbasko/), [Twitter](https://twitter.com/dsbasko), [Telegram](https://t.me/dsbasko)
