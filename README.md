@@ -1,12 +1,20 @@
-[![](https://vsmarketplacebadge.apphb.com/version-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
-[![](https://vsmarketplacebadge.apphb.com/downloads-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/dsbasko.create-component-helper.svg?color=F9CA52)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://badgen.net/vs-marketplace/v/dsbasko.create-component-helper)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://badgen.net/vs-marketplace/i/dsbasko.create-component-helper)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://badgen.net/vs-marketplace/d/dsbasko.create-component-helper)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
+[![](https://badgen.net/vs-marketplace/rating/dsbasko.create-component-helper)](https://marketplace.visualstudio.com/items?itemName=dsbasko.create-component-helper)
 
 [![](https://badgen.net/github/stars/dsbasko/component-creator/#F9CA52)](https://github.com/dsbasko/component-creator)
 [![](https://badgen.net/github/releases/dsbasko/component-creator)](https://github.com/dsbasko/component-creator)
 
 Component Creator is an [open-source](https://github.com/dsbasko/component-creator) extension for [Visual Studio Code](https://code.visualstudio.com), for simple creating components based on yours templates.
+
+
+## Whats new in 2.1.5?
+
+- Added a settings for the template directory (don`t forget to restart vscode after changing extension settings)
+- Added syntax support `{{ caseName }}` with spaces
+- Edited logo
+
 
 ## Features
 
@@ -29,7 +37,7 @@ Right-click on the required directory or selected code, select `New component ðŸ
 
 ## Settings
 
-If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template`. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template` (this path can be changed is the extension settings). The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
 
 ## Download template
 

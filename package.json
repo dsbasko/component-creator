@@ -2,7 +2,7 @@
   "name": "create-component-helper",
   "displayName": "Component Creator",
   "description": "🧬 Create components for any language and any framework",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -24,6 +24,9 @@
     "Other"
   ],
   "keywords": [
+    "File create",
+    "File structure",
+    "Create structure",
     "Create component",
     "Python component",
     "React component",
@@ -60,6 +63,16 @@
           "when": "editorHasSelection"
         }
       ]
+    },
+    "configuration": {
+      "title": "сomponent-сreator",
+      "properties": {
+        "componentCreatorHelper.templateDirectory": {
+          "type": "string",
+          "default": "./.vscode/cch-template",
+          "description": "The directory where the templates will be stored."
+        }
+      }
     }
   },
   "scripts": {
