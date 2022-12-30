@@ -37,7 +37,7 @@ Right-click on the required directory or selected code, select `New component ðŸ
 
 ## Settings
 
-If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template` (this path can be changed is the extension settings). The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template`. This path can be changed is the extension settings. If you want to use user directory, you can enter the symbol `~`. For example, vs code by default stores configs in the `~/.vscode` directory. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
 
 ## Download template
 
