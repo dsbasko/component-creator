@@ -70,19 +70,19 @@ If you want to add some template to the standard library, create an issue or pul
 | Pascal case                  | {{pascalCase}}      | ColorPickerInPut                            |
 | Upper case                   | {{upperCase}}       | COLORPICKERINPUT                            |
 | Lower case                   | {{lowerCase}}       | colorpickerinput                            |
-| With snake delimiter         | {{normalSnake}}     | Color_picker_InPut                          |
+| With snake delimiter         | {{normalSnakeCase}} | Color_picker_InPut                          |
 | Snake case                   | {{snakeCase}}       | color_picker_input                          |
 | Camel snake case             | {{camelSnakeCase}}  | color_Picker_InPut                          |
 | Pascal snake case            | {{pascalSnakeCase}} | Color_Picker_InPut                          |
 | Upper snake case             | {{upperSnakeCase}}  | COLOR_PICKER_INPUT                          |
 | Lower snake case             | {{lowerSnakeCase}}  | color_picker_input                          |
-| With kebab delimiter         | {{normalKebab}}     | Color-picker-InPut                          |
+| With kebab delimiter         | {{normalKebabCase}} | Color-picker-InPut                          |
 | Kebab case                   | {{kebabCase}}       | color-picker-input                          |
 | Camel kebab case             | {{camelKebabCase}}  | color-Picker-InPut                          |
 | Pascal kebab case            | {{pascalKebabCase}} | Color-Picker-InPut                          |
 | Upper kebab case             | {{upperKebabCase}}  | COLOR-PICKER-INPUT                          |
 | Lower kebab case             | {{lowerKebabCase}}  | color-picker-input                          |
-| With dot delimiter           | {{normalDot}}       | Color.picker.InPut                          |
+| With dot delimiter           | {{normalDotCase}}   | Color.picker.InPut                          |
 | Dot case                     | {{dotCase}}         | color.picker.input                          |
 | Camel dot case               | {{camelDotCase}}    | color.Picker.InPut                          |
 | Pascal dot case              | {{pascalDotCase}}   | Color.Picker.InPut                          |
