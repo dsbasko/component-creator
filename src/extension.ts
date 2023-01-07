@@ -1,66 +1,22 @@
-import * as vscode from 'vscode';
-import * as _path from 'path';
-import { homedir } from 'os';
-import { createComponent } from './createComponent';
-import { downloadTemplate } from './downloadTemplate';
+import * as _vscode from 'vscode';
+import { App } from './app';
 
-import {
-  IConfigCreateComponentResponse,
-  IConfigDownloadTemplateResponse,
-} from './interfaces';
-import { includes } from 'lodash';
+export type ContextT = {
+	$mid: number;
+	external: string;
+	fsPath: string;
+	path: string;
+	scheme: string;
+} | undefined;
 
-const config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('componentCreatorHelper');
-const configDir: string = config.get('templateDirectory') || '~/.vscode/cch-template';
-const homeDir: string = homedir();
-const workspaceFolder = vscode.workspace.workspaceFolders?.[0].uri.fsPath || '';
-const defaultTemplatePath = _path.resolve(__dirname, '../templates/');
-const userTemplatePath = _path.join(
-  configDir?.[0] === '~' ? homeDir : workspaceFolder,
-  ...configDir.split(configDir.includes('/') ? '/' : _path.sep).filter(item => item !== '~' && item !== '.').map(item => item)
-);
+const app = new App();
+export function activate(context: _vscode.ExtensionContext) {
+	const commands = _vscode.commands;
+	const commandName = 'component-creator.AddComponent';
+	let sub = commands.registerCommand(commandName, (context: ContextT) => {		
+		app.componentAdd(context);
+	});
+	context.subscriptions.push(sub);
+};
 
-
-export function activate(context: vscode.ExtensionContext) {
-  let createComponentSub = vscode.commands.registerCommand(
-    'component-creator.AddComponent',
-    (context) => {
-      const editor = vscode.window.activeTextEditor;
-      const selection = editor?.document.getText(editor?.selection);
-      const isDir = _path.parse(context.fsPath).ext === '';
-            
-      vscode.window
-      .showInputBox({ title: 'Component name', value: selection })
-      .then((componentName) => {
-        if (!componentName) {
-          return vscode.window.showErrorMessage('Please enter the component name.');
-        }
-
-        const config: IConfigCreateComponentResponse = {
-          componentName: componentName.replace(/[\/\\]/g, _path.sep),
-          defaultTemplatePath,
-          userTemplatePath,
-          componentPath: _path.join(context.fsPath, isDir ? '' : '../'),
-        };
-
-        Promise.all([createComponent(config)]);
-      });
-    }
-  );
-
-  let downloadTemplateSub = vscode.commands.registerCommand(
-    'component-creator.DownloadTemplate',
-    () => {
-      const config: IConfigDownloadTemplateResponse = {
-        defaultTemplatePath,
-        userTemplatePath,
-      };
-      Promise.all([downloadTemplate(config)]);
-    }
-  );
-
-  context.subscriptions.push(createComponentSub);
-  context.subscriptions.push(downloadTemplateSub);
-}
-
-export function deactivate() {}
+export function deactivate() {};

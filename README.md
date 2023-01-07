@@ -6,40 +6,86 @@
 [![](https://badgen.net/github/stars/dsbasko/component-creator/#F9CA52)](https://github.com/dsbasko/component-creator)
 [![](https://badgen.net/github/releases/dsbasko/component-creator)](https://github.com/dsbasko/component-creator)
 
-Component Creator is an [open-source](https://github.com/dsbasko/component-creator) extension for [Visual Studio Code](https://code.visualstudio.com), for simple creating components based on yours templates.
+Component Creator is an [open-source](https://github.com/dsbasko/component-creator) [extension](https://badgen.net/vs-marketplace/v/dsbasko.create-component-helper) for [Visual Studio Code](https://code.visualstudio.com), designed to easily creating components based on yours templates.
 
 
-## Whats new in 2.1.7?
+## Whats new in 2.2?
 
-- Fixed readme
-- Edited logo
+- Added a mask `{{concat}}` in the file name, indicating append buffer from template to this file;
+- Added the ability to overwrite or ignore files that already exist in the selected path;
+- Added Russian translation. You can choose in the extension settings.
 
 
 ## Features
 
 - Creating a component in the selected directory 💥
 - Creating your own templates 💥
-- Using multiple templates 💥
+- Any language support 💥
 - Each project has its own setup 💥
-- Support for recursive directories 💥
-- Template library 💥
 
-![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo')
+![Demo](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/intro.gif 'Demo') 
+
+
+## Usage
+
+1. Call an extension number, there are three ways to do this:
+	- *Right-click on the directory in Project Explorer, then select the menu item “New component...”;*
+	- *Select the text inside the file, right-click on the selected text and select the menu item “New component ...”. The selected text is automatically entered in the name of the component;*
+	- *Run the command palette (`Cmd/Ctrl`+`Shift`+`P`), then type “>New component ...”. This method is the most undesirable, since it is important for it that at least some file is opened, otherwise the extension will not determine in which directory to create the component.*
+2. Enter the name of the component. *If you enter a relative path in the component name, the extension will create the necessary directories. For example, if you specify `../components/multi select` in the component name, the extension will create a ”component” folder in the parent directory, and then create a “multi select” component there.*
+3. Select a template from the list. *If you have only one template, the selection field will not be shown. If you don't have templates, the extension will offer to download one from the library. The template “! Example of all transform styles” will demonstrate all possible transforms of the component name.*
 
 <br><br><br>
 
-## Usage
-Demor>
+## Create template
+
+1. A folder with the template name is created in the template directory. The default path is `./.vscode/cch-template`, can be changed in the settings.
+2. Any structure of folders and files is created inside this directory. In order to insert a dynamic component name, you can use the template {{caseName}} (all transformations are listed below). For example, if you entered name `{{kebabCase}}.props.ts` in the file name, and then when creating the component, specify `Multi select` as the name, then the file `multi-select.props.ts` will be created as a result. It also works for the body of the file.
+3. If you add `{{concat}}` to the beginning of the file name, then the contents of this file will be added to the existing file, and if this file is not exist, the file will be created.
+
+	### For example.
+	Let's say we create the file `{{concat}}index.ts` with this content:
+	```typescript
+	export * from'./{{pascalCase}};
+
+	```
+	Then, we create a template named `body`, but in the directory where the file “index.ts” should be loaded, there is already such a file with the contents:
+	```typescript
+	export * from'./Header';
+	export * from'./Aside';
+	
+	```
+	The {{concat}} flag will make it clear that the template content will need to be added to this file. In the example , you will get this content:
+	```typescript
+	export * from'./Header';
+	export * from'./Aside';
+	export * from'./Body';
+
+	```
+	
+<br><br><br>
 
 ## Settings
 
-If, when creating a component, a folder with templates is not found, the plugin will offer to download one from the library and put it on the path `.vscode/cch-template`. This path can be changed is the extension settings. If you want to use user directory, you can enter the symbol `~`. For example, vs code by default stores configs in the `~/.vscode` directory. The template structure is arbitrary and is available for any languages and frameworks. You can also create as many templates as you want.
+### templateDirectory
+The directory where the templates are stored.
+If you specify the path using ./ the workspace directory will be selected
+If you specify the path using ~/ the operating system user directory will be selected.
+```json
+{
+  "componentCreatorHelper.templateDirectory": "./.vscode/cch-template",
+}
+```
 
-## Download template
+### language
+Extension language
+Available: `en`, `ru`
 
-In order to download one of several library templates, you need to press `Cmd/Ctrl` + `Shift` + `P` on the keyboard and select `Component Creator: Download Template`. Then, select a template from the list and rename it if necessary.
-
-If you want to add some template to the standard library, create an issue or pull request on github.
+```json
+{
+  "componentCreatorHelper.language": "en"
+}
+```
 
 <br><br><br>
 
@@ -84,12 +130,6 @@ If you want to add some template to the standard library, create an issue or pul
 | Pascal dot case              | {{pascalDotCase}}   | Color.Picker.InPut                          |
 | Upper dot case               | {{upperDotCase}}    | COLOR.PICKER.INPUT                          |
 | Lower dot case               | {{lowerDotCase}}    | color.picker.input                          |
-
-<br><br><br>
-
-## Demo of template editing
-
-![Create your template](https://raw.githubusercontent.com/dsbasko/component-creator/main/assets/gif/custom-template.gif 'Create your template')
 
 <br><br><br>
 

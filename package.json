@@ -1,28 +1,20 @@
 {
   "name": "create-component-helper",
   "displayName": "Component Creator",
-  "description": "🧬 Create components for any language and any framework",
-  "version": "2.1.7",
-  "engines": {
-    "vscode": "^1.70.0"
-  },
+  "description": "🧬 Create file structure based on your templates",
+  "version": "2.2.0",
+  "engines": { "vscode": "^1.70.0" },
   "icon": "assets/icon.png",
   "license": "MIT",
   "publisher": "dsbasko",
-  "author": {
-    "name": "Dmitriy Basenko"
-  },
+  "author": { "name": "Dmitriy Basenko" },
   "homepage": "https://github.com/dsbasko/component-creator",
   "repository": {
     "type": "git",
     "url": "https://github.com/dsbasko/component-creator"
   },
-  "bugs": {
-    "url": "https://github.com/dsbasko/component-creator/issues"
-  },
-  "categories": [
-    "Other"
-  ],
+  "bugs": { "url": "https://github.com/dsbasko/component-creator/issues" },
+  "categories": ["Other"],
   "keywords": [
     "File create",
     "File structure",
@@ -33,20 +25,13 @@
     "Vue component",
     "Angular component"
   ],
-  "activationEvents": [
-    "onCommand:component-creator.AddComponent",
-    "onCommand:component-creator.DownloadTemplate"
-  ],
+  "activationEvents": ["onCommand:component-creator.AddComponent"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "component-creator.AddComponent",
-        "title": "New component 🧩"
-      },
-      {
-        "command": "component-creator.DownloadTemplate",
-        "title": "Component Creator: Download Template"
+        "title": "New component..."
       }
     ],
     "menus": {
@@ -71,33 +56,31 @@
           "type": "string",
           "default": "./.vscode/cch-template",
           "description": "The directory where the templates will be stored."
+        },
+        "componentCreatorHelper.language": {
+          "type": "string",
+          "default": "en",
+          "enum": ["en", "ru"],
+          "description": "Pop-up language."
         }
       }
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "lint": "eslint src --ext ts"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
     "@types/lodash": "^4.14.185",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
+    "@types/node": "18.x",
     "@types/vscode": "^1.70.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
-    "@vscode/test-electron": "^2.1.5",
+    "@vscode/vsce": "^2.16.0",
     "eslint": "^8.20.0",
     "glob": "^8.0.3",
     "lodash": "^4.17.21",
-    "mocha": "^10.0.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "vsce": "^2.11.0"
+    "typescript": "^4.9.4" 
   }
 }
