@@ -9,11 +9,9 @@
 Component Creator is an [open-source](https://github.com/dsbasko/component-creator) [extension](https://badgen.net/vs-marketplace/v/dsbasko.create-component-helper) for [Visual Studio Code](https://code.visualstudio.com), designed to easily creating components based on yours templates.
 
 
-## Whats new in 2.2?
+## Whats new in 2.2.1?
 
-- Added a mask `{{concat}}` in the file name, indicating append buffer from template to this file;
-- Added the ability to overwrite or ignore files that already exist in the selected path;
-- Added Russian translation. You can choose in the extension settings.
+- Fixed an error with incorrect processing `.` `-` `_` in the name of the component.
 
 
 ## Features

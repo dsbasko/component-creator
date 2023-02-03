@@ -120,12 +120,12 @@ export class ComponentAddHandle {
 		const normalizedComponentName = componentName.replace('\\\\', '/');
 		if (normalizedComponentName.includes('/')) {
 			const parseComponent = parse(normalizedComponentName);
-			this.componentName = parseComponent.base;
+			this.componentName = parseComponent.base.replace(/[-_.]/g, ' ');
 			this.contextPath = join(this.contextPath, parseComponent.dir);
-		return this;
+			return this;
 		}
 
-		this.componentName = normalizedComponentName;
+		this.componentName = normalizedComponentName.replace(/[-_.]/g, ' ');
 		return this;
 	};
 
