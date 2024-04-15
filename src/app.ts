@@ -7,7 +7,7 @@ export class App {
 
 	constructor() {
 		this.outputService = OutputService.getInstance();
-	};
+	}
 
 	componentAdd = async (context: ContextT) => {
 		const app = new ComponentAddHandle(context);
@@ -17,6 +17,7 @@ export class App {
 			await app.setTemplateDirectory();
 			await app.getFilesBuffer();
 			await app.replaceTemplateMask();
+			await app.makeDirectory();
 			await app.writeFile();
 			await app.concatFiles();
 		} catch (err: any) {
@@ -27,4 +28,4 @@ export class App {
 	error = (message: string): void => {
 		this.outputService.error({ message });
 	};
-};
+}

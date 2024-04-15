@@ -9,9 +9,9 @@
 Component Creator is an [open-source](https://github.com/dsbasko/component-creator) [extension](https://badgen.net/vs-marketplace/v/dsbasko.create-component-helper) for [Visual Studio Code](https://code.visualstudio.com), designed to easily creating components based on yours templates.
 
 
-## Whats new in 2.2.1?
+## Whats new in 2.3.0?
 
-- Fixed an error with incorrect processing `.` `-` `_` in the name of the component.
+- Support for creating empty folders in templates.
 
 
 ## Features
@@ -120,7 +120,7 @@ Available: `en`, `ru`
 | Kebab case                   | {{kebabCase}}       | color-picker-input                          |
 | Camel kebab case             | {{camelKebabCase}}  | color-Picker-InPut                          |
 | Pascal kebab case            | {{pascalKebabCase}} | Color-Picker-InPut                          |
- Upper kebab case             | {{upperKebabCase}}  | COLOR-PICKER-INPUT                          |
+| Upper kebab case             | {{upperKebabCase}}  | COLOR-PICKER-INPUT                          |
 | Lower kebab case             | {{lowerKebabCase}}  | color-picker-input                          |
 | With dot delimiter           | {{normalDotCase}}   | Color.picker.InPut                          |
 | Dot case                     | {{dotCase}}         | color.picker.input                          |

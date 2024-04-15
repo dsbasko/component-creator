@@ -3,4 +3,5 @@ export type TemplateFilesT = {
 	path: string;
 	templatePath: string;
 	buffer: string;
+	isDirectory: boolean;
 };
